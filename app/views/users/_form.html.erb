@@ -11,18 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= label(:rsvp, :session_id, "Event:") %><br />
-  	<%= select_tag "rsvp[session_id]", options_from_collection_for_select(@sessions, "id", "date"), :include_blank => true %>
 
-  </div>
-
-
-	<%= @sessions.each do |p| %>
-		<%= check_box("rsvp", "session_id", {}, p.id) %>
-		<%= label(:rsvp, :session_id, "#{p.formatteddate}") %><br />
-		
-	<% end %>
+	<div class="field">
+		<%= @sessions.each do |s| %>
+			<%= radio_button("rsvp", "session_id", s.id) %>
+			<%= label(:rsvp, :session_id, s.formatteddate ) %><br />
+		<% end %>
+	</div>
 
 
   <div class="field">

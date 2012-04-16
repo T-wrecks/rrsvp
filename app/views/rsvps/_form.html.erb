@@ -11,14 +11,18 @@
     </div>
   <% end %>
 
+
+
   <div class="field">
     <%= f.label :user_id %><br />
     <%= f.number_field :user_id %>
   </div>
-  <div class="field">
-    <%= f.label :session_id %><br />
-    <%= f.number_field :session_id %>
-  </div>
+
+	<div class="field">
+	  <%= label(:rsvp, :session_id, "Event:") %><br />
+		<%= select("rsvp", "session_id", Session.all.collect {|p| [ p.formatteddate, p.id ] }, {:include_blank => true }) %>
+	</div>
+	
   <div class="actions">
     <%= f.submit %>
   </div>

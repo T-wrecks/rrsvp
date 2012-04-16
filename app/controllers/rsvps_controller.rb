@@ -3,11 +3,6 @@ class RsvpsController < ApplicationController
   # GET /rsvps.json
   def index
     @rsvps = Rsvp.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @rsvps }
-    end
   end
 
   # GET /rsvps/1
@@ -47,6 +42,7 @@ class RsvpsController < ApplicationController
   
   def edit
     @rsvp = Rsvp.find(params[:id])
+    @sessions = Session.all
   end
   
   def update
