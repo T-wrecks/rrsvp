@@ -1,0 +1,59 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Fname</th>
+    <th>Lname</th>
+    <th>Address</th>
+    <th>Address2</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Email</th>
+    <th>Hphone</th>
+    <th>Cphone</th>
+    <th>Message</th>
+    <th>Special</th>
+    <th>Partysize</th>
+    <th>Childrencount</th>
+    <th>Childrenages</th>
+    <th>Registrationdate</th>
+    <th>Loggedin</th>
+    <th>Loggedout</th>
+    <th>Usertype</th>
+    <th>Memberid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.fname %></td>
+    <td><%= user.lname %></td>
+    <td><%= user.address %></td>
+    <td><%= user.address2 %></td>
+    <td><%= user.state %></td>
+    <td><%= user.zip %></td>
+    <td><%= user.email %></td>
+    <td><%= user.hphone %></td>
+    <td><%= user.cphone %></td>
+    <td><%= user.message %></td>
+    <td><%= user.special %></td>
+    <td><%= user.partysize %></td>
+    <td><%= user.childrencount %></td>
+    <td><%= user.childrenages %></td>
+    <td><%= user.registrationdate %></td>
+    <td><%= user.loggedin %></td>
+    <td><%= user.loggedout %></td>
+    <td><%= user.usertype %></td>
+    <td><%= user.memberid %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
