@@ -1,6 +1,6 @@
 class Session < ActiveRecord::Base
   belongs_to :event
-  has_many :rsvp
+  has_and_belongs_to_many :users
   
   validates :event_id, :presence => true
   
