@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-
 	<div class="field">
-		<%= @sessions.each do |s| %>
-			<%= radio_button("rsvp", "session_id", s.id) %>
-			<%= label(:rsvp, :session_id, s.formatteddate ) %><br />
-		<% end %>
-	</div>
+			<% @sessions.each do |s| %>
+				<%= radio_button("rsvp", "session_id", s.id) %>
+				<%= label(:rsvp, :session_id, s.formatteddate ) %><br />
+			<% end %>
+		</div>
+
 
 
   <div class="field">
