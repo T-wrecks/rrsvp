@@ -1,102 +1,149 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+		<% @sessions.each do |s| %>
+			<%= radio_button("session", "id", s.id) %>
+			<%= label(:session, :id, s.formatteddate ) %><br />
+		<% end %>
+</div>
+
+
+
+
+
+
+
+  <div class="control-group">
+    <%= f.label :fname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :fname, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :lname, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :lname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :address2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address2, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :state, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :zip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :zip, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hphone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hphone, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cphone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cphone, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :message, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :message, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :special, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :special, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :partysize, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :partysize, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :childrencount, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :childrencount, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :childrenages, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :childrenages, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :registrationdate, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :registrationdate, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :loggedin, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :loggedin, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :loggedout, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :loggedout, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :usertype, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :usertype, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :memberid, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :memberid, :class => 'text_field' %>
+    </div>
+  </div>
 
-	<div class="field">
-			<% @sessions.each do |s| %>
-				<%= radio_button("rsvp", "session_id", s.id) %>
-				<%= label(:rsvp, :session_id, s.formatteddate ) %><br />
-			<% end %>
-		</div>
-
-
-
-  <div class="field">
-    <%= f.label :fname, "First Name: " %><br />
-    <%= f.text_field :fname %>
-  </div>
-  <div class="field">
-    <%= f.label :lname, "Last Name: " %><br />
-    <%= f.text_field :lname %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :address2 %><br />
-    <%= f.text_field :address2 %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :hphone %><br />
-    <%= f.text_field :hphone %>
-  </div>
-  <div class="field">
-    <%= f.label :cphone %><br />
-    <%= f.text_field :cphone %>
-  </div>
-  <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_area :message %>
-  </div>
-  <div class="field">
-    <%= f.label :special %><br />
-    <%= f.text_area :special %>
-  </div>
-  <div class="field">
-    <%= f.label :partysize %><br />
-    <%= f.text_field :partysize %>
-  </div>
-  <div class="field">
-    <%= f.label :childrencount %><br />
-    <%= f.text_field :childrencount %>
-  </div>
-  <div class="field">
-    <%= f.label :childrenages %><br />
-    <%= f.text_field :childrenages %>
-  </div>
-  <div class="field">
-    <%= f.label :registrationdate %><br />
-    <%= f.datetime_select :registrationdate %>
-  </div>
-  <div class="field">
-    <%= f.label :loggedin %><br />
-    <%= f.datetime_select :loggedin %>
-  </div>
-  <div class="field">
-    <%= f.label :loggedout %><br />
-    <%= f.datetime_select :loggedout %>
-  </div>
-  <div class="field">
-    <%= f.label :usertype %><br />
-    <%= f.text_field :usertype %>
-  </div>
-  <div class="field">
-    <%= f.label :memberid %><br />
-    <%= f.text_field :memberid %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn' %>
   </div>
 <% end %>

@@ -1,100 +1,99 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = @user.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
 <p>
-  <b>Fname:</b>
+  <strong><%= model_class.human_attribute_name(:fname) %>:</strong><br>
   <%= @user.fname %>
 </p>
-
 <p>
-  <b>Lname:</b>
+  <strong><%= model_class.human_attribute_name(:lname) %>:</strong><br>
   <%= @user.lname %>
 </p>
-
 <p>
-  <b>Address:</b>
+  <strong><%= model_class.human_attribute_name(:address) %>:</strong><br>
   <%= @user.address %>
 </p>
-
 <p>
-  <b>Address2:</b>
+  <strong><%= model_class.human_attribute_name(:address2) %>:</strong><br>
   <%= @user.address2 %>
 </p>
-
 <p>
-  <b>State:</b>
+  <strong><%= model_class.human_attribute_name(:state) %>:</strong><br>
   <%= @user.state %>
 </p>
-
 <p>
-  <b>Zip:</b>
+  <strong><%= model_class.human_attribute_name(:zip) %>:</strong><br>
   <%= @user.zip %>
 </p>
-
 <p>
-  <b>Email:</b>
+  <strong><%= model_class.human_attribute_name(:email) %>:</strong><br>
   <%= @user.email %>
 </p>
-
 <p>
-  <b>Hphone:</b>
+  <strong><%= model_class.human_attribute_name(:hphone) %>:</strong><br>
   <%= @user.hphone %>
 </p>
-
 <p>
-  <b>Cphone:</b>
+  <strong><%= model_class.human_attribute_name(:cphone) %>:</strong><br>
   <%= @user.cphone %>
 </p>
-
 <p>
-  <b>Message:</b>
+  <strong><%= model_class.human_attribute_name(:message) %>:</strong><br>
   <%= @user.message %>
 </p>
-
 <p>
-  <b>Special:</b>
+  <strong><%= model_class.human_attribute_name(:special) %>:</strong><br>
   <%= @user.special %>
 </p>
-
 <p>
-  <b>Partysize:</b>
+  <strong><%= model_class.human_attribute_name(:partysize) %>:</strong><br>
   <%= @user.partysize %>
 </p>
-
 <p>
-  <b>Childrencount:</b>
+  <strong><%= model_class.human_attribute_name(:childrencount) %>:</strong><br>
   <%= @user.childrencount %>
 </p>
-
 <p>
-  <b>Childrenages:</b>
+  <strong><%= model_class.human_attribute_name(:childrenages) %>:</strong><br>
   <%= @user.childrenages %>
 </p>
-
 <p>
-  <b>Registrationdate:</b>
+  <strong><%= model_class.human_attribute_name(:registrationdate) %>:</strong><br>
   <%= @user.registrationdate %>
 </p>
-
 <p>
-  <b>Loggedin:</b>
+  <strong><%= model_class.human_attribute_name(:loggedin) %>:</strong><br>
   <%= @user.loggedin %>
 </p>
-
 <p>
-  <b>Loggedout:</b>
+  <strong><%= model_class.human_attribute_name(:loggedout) %>:</strong><br>
   <%= @user.loggedout %>
 </p>
-
 <p>
-  <b>Usertype:</b>
+  <strong><%= model_class.human_attribute_name(:usertype) %>:</strong><br>
   <%= @user.usertype %>
 </p>
-
 <p>
-  <b>Memberid:</b>
+  <strong><%= model_class.human_attribute_name(:memberid) %>:</strong><br>
   <%= @user.memberid %>
 </p>
 
+<h2>User Sessions</h2>
+<% @user.sessions.each do |s| %>
+	<%= s.formatteddate %><br />
+<% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              users_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_user_path(@user), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              user_path(@user),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

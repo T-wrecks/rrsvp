@@ -1,6 +1,6 @@
 class CreateUserSessions < ActiveRecord::Migration
   def up
-    create_table :users_sessions do |t|
+    create_table :sessions_users do |t|
       t.integer :user_id
       t.integer :session_id
 
@@ -9,6 +9,6 @@ class CreateUserSessions < ActiveRecord::Migration
   end
 
   def down
-    drop_table :users_sessions
+    drop_table :sessions_users
   end
 end

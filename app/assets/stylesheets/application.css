@@ -5,5 +5,3 @@
  *= require_self
  *= require_tree . 
 */
-tr:hover {background:#ccc;}
-td {padding:2px 7px;border:1px solid #ccc;}

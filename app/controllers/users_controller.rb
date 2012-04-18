@@ -20,9 +20,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
-    @user.rsvps.build({:session_id => params[:rsvp][:session_id]})
     @sessions = Session.where("event_id = ?", 2)
+    @user = User.new(params[:user])
+    @user.sessions << Session.find(params[:session][:id])
    
     if @user.save 
       redirect_to @user, :notice => 'User was successfully created.' 
