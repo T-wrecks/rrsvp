@@ -16,8 +16,8 @@
 
 
 	<% @sessions.each do |s| %>
-			<%= check_box_tag("session[ids][]", s.id, @user.sessions.detect{|d| d == s} ) %>
-			<%= label("session[ids]", "", s.formatteddate ) %><br />
+			<%= check_box_tag("user[session_ids][]", s.id, @user.sessions.include?(s) ) %>
+			<%= label("user[session_ids]", "", s.formatteddate ) %><br />
 	<% end %>
 
 

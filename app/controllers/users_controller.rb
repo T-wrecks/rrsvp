@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def create
     @sessions = Session.where("event_id = ?", 2)
     @user = User.new(params[:user])
-    @user.sessions << Session.find(params[:session][:ids])
+    #@user.sessions << Session.find(params[:session][:ids])
    
     if @user.save 
       redirect_to @user, :notice => 'User was successfully created.' 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.sessions = Session.find(params[:session][:ids])
+   # @user.sessions = Session.find(params[:session][:ids])
     
     if @user.update_attributes(params[:user])
       redirect_to @user, :notice => 'User was successfully updated.' 

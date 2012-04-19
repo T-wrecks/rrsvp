@@ -7,23 +7,10 @@
       <th><%= model_class.human_attribute_name(:fname) %></th>
       <th><%= model_class.human_attribute_name(:lname) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:address2) %></th>
+
       <th><%= model_class.human_attribute_name(:state) %></th>
       <th><%= model_class.human_attribute_name(:zip) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:hphone) %></th>
-      <th><%= model_class.human_attribute_name(:cphone) %></th>
-      <th><%= model_class.human_attribute_name(:message) %></th>
-      <th><%= model_class.human_attribute_name(:special) %></th>
-      <th><%= model_class.human_attribute_name(:partysize) %></th>
-      <th><%= model_class.human_attribute_name(:childrencount) %></th>
-      <th><%= model_class.human_attribute_name(:childrenages) %></th>
-      <th><%= model_class.human_attribute_name(:registrationdate) %></th>
-      <th><%= model_class.human_attribute_name(:loggedin) %></th>
-      <th><%= model_class.human_attribute_name(:loggedout) %></th>
-      <th><%= model_class.human_attribute_name(:usertype) %></th>
-      <th><%= model_class.human_attribute_name(:memberid) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -34,23 +21,10 @@
         <td><%= user.fname %></td>
         <td><%= user.lname %></td>
         <td><%= user.address %></td>
-        <td><%= user.address2 %></td>
+
         <td><%= user.state %></td>
         <td><%= user.zip %></td>
         <td><%= user.email %></td>
-        <td><%= user.hphone %></td>
-        <td><%= user.cphone %></td>
-        <td><%= user.message %></td>
-        <td><%= user.special %></td>
-        <td><%= user.partysize %></td>
-        <td><%= user.childrencount %></td>
-        <td><%= user.childrenages %></td>
-        <td><%= user.registrationdate %></td>
-        <td><%= user.loggedin %></td>
-        <td><%= user.loggedout %></td>
-        <td><%= user.usertype %></td>
-        <td><%= user.memberid %></td>
-        <td><%=l user.created_at %></td>
         <td>
 					<%= link_to t('.edit', :default => t("helpers.links.show")),
                       user_path(user), :class => 'btn btn-mini' %>
