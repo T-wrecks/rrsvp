@@ -1,3 +1,4 @@
+
 <%- model_class = User.new.class -%>
 <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 <table class="table table-striped">
@@ -6,11 +7,8 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:fname) %></th>
       <th><%= model_class.human_attribute_name(:lname) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
 
-      <th><%= model_class.human_attribute_name(:state) %></th>
-      <th><%= model_class.human_attribute_name(:zip) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:loggedin) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -19,16 +17,10 @@
       <tr>
         <td><%= link_to user.id, user_path(user) %></td>
         <td><%= user.fname %></td>
-        <td><%= user.lname %></td>
-        <td><%= user.address %></td>
+        <td><%= user.lname %></td>  
+        <td><%= user.loggedin.strftime("%A %b. %d %Y %I:%M %p") %></td>
 
-        <td><%= user.state %></td>
-        <td><%= user.zip %></td>
-        <td><%= user.email %></td>
         <td>
-					<%= link_to t('.edit', :default => t("helpers.links.show")),
-                      user_path(user), :class => 'btn btn-mini' %>
-
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_path(user), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -45,3 +37,5 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_user_path,
             :class => 'btn btn-primary' %>
+
+<%= will_paginate(@users) %>

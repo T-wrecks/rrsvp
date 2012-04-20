@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
   
   validates :fname,:lname, :session_ids, :presence => true
 
+  self.per_page = 10
   
   def to_s
     "#{fname} #{lname}"
   end
-
+  
 end

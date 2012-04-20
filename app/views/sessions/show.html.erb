@@ -1,20 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = @session.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
 <p>
-  <b>Event:</b>
-  <%= @session.event.name %>
+  <strong><%= model_class.human_attribute_name(:event_id) %>:</strong><br>
+  <%= @session.event_id %>
 </p>
-
 <p>
-  <b>Date:</b>
-  <%= @session.date.strftime("%A %b %d, %Y %I:%M %p") %>
+  <strong><%= model_class.human_attribute_name(:date) %>:</strong><br>
+  <%= @session.date %>
 </p>
-
 <p>
-  <b>Location:</b>
+  <strong><%= model_class.human_attribute_name(:location) %>:</strong><br>
   <%= @session.location %>
 </p>
 
-
-<%= link_to 'Edit', edit_session_path(@session) %> |
-<%= link_to 'Back', sessions_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              sessions_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_session_path(@session), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              session_path(@session),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
