@@ -4,12 +4,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:fname) %></th>
-      <th><%= model_class.human_attribute_name(:lname) %></th>
-
-      <th><%= model_class.human_attribute_name(:loggedin) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>User Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Logged In</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +20,9 @@
         <td><%= user.loggedin.strftime("%A %b. %d %Y %I:%M %p") %></td>
 
         <td>
+	        <%= link_to t('.show', :default => t("helpers.links.show")),
+                      user_path(user), :class => 'btn btn-mini' %>
+
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_path(user), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

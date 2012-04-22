@@ -3,12 +3,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Event Id</th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:subheading) %></th>
-      <th><%= model_class.human_attribute_name(:disclaimer) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,10 +14,7 @@
       <tr>
         <td><%= link_to event.id, event_path(event) %></td>
         <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.subheading %></td>
-        <td><%= event.disclaimer %></td>
-        <td><%=l event.created_at %></td>
+        <td><%= truncate(event.description, :length => 40, :separator => '...') %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_event_path(event), :class => 'btn btn-mini' %>
