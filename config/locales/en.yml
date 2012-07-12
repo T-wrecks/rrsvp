@@ -3,3 +3,20 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        session_ids: "Event"
+        fname: "First Name"
+        lname: "Last Name"
+    errors:
+      models:
+        user:
+          attributes:
+            session_ids:
+              blank: "is required"
+            fname:
+              blank: "is required"
+            lname:
+              blank: "is required"
+              

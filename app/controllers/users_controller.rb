@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @sessions = Session.where("event_id = ?", 2)
+    @sessions = Session.where("event_id = ?", params[:id])
   end
 
 

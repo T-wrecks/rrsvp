@@ -1,5 +1,7 @@
 Rrsvp::Application.routes.draw do
   root :to => "users#new"
+  match "register/:id" => "users#new"
+
   resources :sessions
 
   resources :rsvps

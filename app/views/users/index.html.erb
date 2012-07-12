@@ -40,4 +40,5 @@
             new_user_path,
             :class => 'btn btn-primary' %>
 
-<%= will_paginate(@users) %>
+<%= will_paginate(@users, :previous_label => '&larr; Prev',
+						:next_label => 'Next &rarr;') %>
